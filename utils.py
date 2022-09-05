@@ -20,12 +20,17 @@ sheets_service = None
 main_table = []
 
 
-def get_csv(url: str):
-    global drive_service
-
+def get_file_id(url: str):
     path = urlparse(url).path
     path_segments = PurePosixPath(unquote(path)).parts
     file_id = path_segments[3]
+    return file_id
+
+
+def get_csv(url: str):
+    global drive_service
+
+    file_id = get_file_id(url)
 
     # Call the Drive v3 API
     file_result = drive_service.files().export(
