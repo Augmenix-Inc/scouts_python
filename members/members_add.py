@@ -88,6 +88,9 @@ Your choice (1-4, leave blank for none): """)
             f"Invalid input. Confirm add {name} with {email} to the unit? (Y/N): ").upper()
     if cfm == "Y":
         add_member(email, name, sclass, patrol, rank)
+    else:
+        print("Now returning back to the previous menu.")
+        members.members_main.get_members_user_input()
 
 
 def add_member(email: str, name: str, sclass: str, patrol: str, rank: str):

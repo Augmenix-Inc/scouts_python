@@ -20,6 +20,9 @@ def get_removemember_user_input():
             f"Invalid input. Confirm remove {name} with {email} from the unit? (Y/N): ").upper()
     if cfm == "Y":
         remove_member(user_index)
+    else:
+        print("Now returning back to the previous menu.")
+        members.members_main.get_members_user_input()
 
 
 def remove_member(user_index):

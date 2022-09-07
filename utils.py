@@ -1,5 +1,6 @@
 import os.path
 import members.members_main
+import progressbadges.prog_main
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -142,3 +143,5 @@ b. Go back (exit program)
         choice = input("Invalid input. Re-enter your choice (1-4): ")
     if choice == "1":
         members.members_main.get_members_user_input()
+    elif choice == "2":
+        progressbadges.prog_main.get_prog_user_input()
