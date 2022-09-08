@@ -19,5 +19,7 @@ b. Go back (to previous menu)
     print("")
     if choice == "1":
         progressbadges.prog_requirements_completion.get_update_member_req_user_input()
+    elif choice == "2":
+        progressbadges.prog_requirements_completion.get_update_all_members_req_user_input()
     elif choice == "b":
         utils.get_first_user_input()

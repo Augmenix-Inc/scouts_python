@@ -174,10 +174,10 @@ def add_member(email: str, name: str, sclass: str, patrol: str, rank: str):
     }).execute()
 
     cont = input(
-        "Member added successfully. Would you like to continue managing members (Y/N): ").upper()
+        "Member added successfully. Would you like to continue managing members? (Y/N): ").upper()
     while cont != "Y" and cont != "N":
         cont = input(
-            f"Invalid input. Would you like to continue managing members (Y/N): ").upper()
+            f"Invalid input. Would you like to continue managing members? (Y/N): ").upper()
     if cont == "Y":
         members.members_main.get_members_user_input()
     elif cont == "N":
