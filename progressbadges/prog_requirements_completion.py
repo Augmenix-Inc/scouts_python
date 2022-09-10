@@ -165,6 +165,10 @@ def update_single_batch_req_comp(rc_table, rc_url, rc_comp_index, new_req_comp):
     rc_completion_date = rc_table[1]
     rc[rc_comp_index] = new_req_comp
     date = datetime.utcnow()
+    if new_req_comp == "TRUE":
+        rc_completion_date[rc_comp_index] = date.strftime("%m/%d/%Y")
+    else:
+        rc_completion_date[rc_comp_index] = "-"
     rc_completion_date[rc_comp_index] = date.strftime("%m/%d/%Y")
     rc_csv = utils.conv_table_csv(rc_table)
     rc_file_id = utils.get_file_id(rc_url)
