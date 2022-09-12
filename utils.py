@@ -44,7 +44,7 @@ def get_csv(url: str):
 def get_csv_table(url: str, include_headers: bool):
     csvStr = get_csv(url)
 
-    rows = csvStr.splitlines()
+    rows = csvStr.split("\r\n")
     for each_row_str in rows:
         if each_row_str == "":
             rows.remove(each_row_str)

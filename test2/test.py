@@ -11,7 +11,6 @@ def fix_rc():
         prog_badges_urls, include_headers=True)
     prog_badges_names = prog_badges_table[0]
     prog_badges_requirements = prog_badges_table[2]
-    prog_badges_rc = prog_badges_table[3]
     prog_badges_len = len(prog_badges_names)
     print("Badges available:")
     for i in range(1, prog_badges_len):
@@ -38,20 +37,3 @@ def fix_rc():
             "parents": [utils.PROG_BADGES_RC_FOLDER_ID],
             "name": f"RC_Template_{badge_name}"
         }, media_body=MediaIoBaseUpload(BytesIO(str.encode(rc_csv)), mimetype='text/csv'), supportsAllDrives=True).execute()
-        rc_url = f"https://docs.google.com/spreadsheets/d/{f.get('id')}/edit?usp=sharing"
-        prog_badges_rc[i] = rc_url
-    prog_badges_csv = utils.conv_table_csv(prog_badges_table)
-    utils.sheets_service.spreadsheets().batchUpdate(spreadsheetId=utils.PROG_BADGES_TEMPLATE_ID, body={
-        'requests': [{
-            'pasteData': {
-                "coordinate": {
-                    "sheetId": 0,
-                    "rowIndex": "0",  # adapt this if you need different positioning
-                    "columnIndex": "0",  # adapt this if you need different positioning
-                },
-                "data": prog_badges_csv,
-                "type": 'PASTE_NORMAL',
-                "delimiter": ',',
-            }
-        }]
-    }).execute()

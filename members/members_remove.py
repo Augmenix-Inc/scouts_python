@@ -31,6 +31,7 @@ def remove_member(user_index):
         prog_badges_url, include_headers=False)
     rc_urls = prog_badges_table[3]
     for url in rc_urls:
+        if url == "": continue
         utils.drive_service.files().delete(fileId=utils.get_file_id(url),
                                            supportsAllDrives=True).execute()
     utils.drive_service.files().delete(

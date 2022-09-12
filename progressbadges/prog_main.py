@@ -1,6 +1,7 @@
 import utils
 import progressbadges.prog_badges_completion
 import progressbadges.prog_requirements_completion
+import test2.test
 
 def get_prog_user_input():
     print(
